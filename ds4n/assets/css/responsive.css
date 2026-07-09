@@ -1,0 +1,46 @@
+@media (min-width: 62em) {
+    body{padding-top:150px;}
+}
+@media (max-width: 61.95em) {
+    .container{
+        --bs-gutter-x: 2.5rem;
+    }
+    .row{
+        --bs-gutter-x: 1.5rem;
+    }
+    body{padding-top:71px;}
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 100%;}
+
+    .build{padding: 20px 0;}
+    .ds4n-summary{padding: 30px;}
+    .build .ds4n-summary p, .build h2{margin-bottom: 30px;}
+    .build h2{font-size: 36px;}
+    .build p{font-size: 20px;}
+}
+@media (max-width: 47.95em) {
+
+}
+@media (max-width: 24.95em) {
+
+}
+@media (min-width: 48em) and (max-width: 61.95em) {
+
+}
+@media (min-width: 62em) and (max-width: 74.95em) {
+
+}
+@media (min-width: 75em) {
+    .content p, .content .h1, .content .h2, .content .h3, .content .h4, .content .h5, .content .h6, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6{margin-bottom: 1.875rem;}
+}
+
+/* @media (min-width: 48em) and (max-width: 74.99em) {
+    h1.df24{line-height: 1.2;}
+} */
+
+@media (min-width: 75em) and (max-width: 87.49em) {
+
+}
+
+@media (min-width: 87.5em) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1400px;}
+}
