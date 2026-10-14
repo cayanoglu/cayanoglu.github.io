@@ -1,30 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xDS4N | In Pursuit of What's Next</title>
-<link rel="icon" href="favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI ve AI Ajanları 2026 — Gelişmeler Raporu</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:#0b0b0d;color:#f2f2f2;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;min-height:100vh;padding:2rem;line-height:1.6;
-  }
-  h1{font-size:clamp(2.5rem,8vw,5rem);letter-spacing:.15em;font-weight:800;margin-bottom:1rem}
-  p{max-width:640px;font-size:clamp(1rem,2.5vw,1.25rem);color:#b8b8b8}
-  .tag{margin-top:.5rem;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#666}
-  footer{position:fixed;bottom:1.5rem;font-size:.8rem;color:#555}
-  a{color:#f2f2f2;text-decoration:none;border-bottom:1px solid #444}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --bg: #0b0e17;
+  --surface: #11152a;
+  --surface-2: #171b3a;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --accent: #6366f1;
+  --accent-glow: rgba(99,102,241,0.25);
+  --border: rgba(148,163,184,0.12);
+  --radius: 14px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: radial-gradient(1200px 800px at 10% -10%, var(--accent-glow), transparent 60%),
+              radial-gradient(1000px 700px at 110% 110%, rgba(236,72,153,0.08), transparent 60%),
+              var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+header { margin-bottom: 3.5rem; text-align: center; }
+header h1 {
+  font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+  background: linear-gradient(135deg, #a78bfa, #6366f1, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.subtitle { color: var(--text-dim); font-size: 1.05rem; }
+.subtitle .date { color: var(--text-dim); font-size: 0.85rem; opacity: 0.7; }
+.card {
+  background: rgba(255,255,255,0.03); backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.75rem 2rem; margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, border-color .2s ease;
+}
+.card:hover { border-color: rgba(148,163,184,0.25); transform: translateY(-2px); }
+.card h2 { font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-bottom: 1rem; letter-spacing: -0.01em; }
+.card h3 { font-size: 0.95rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
+.subtitle-tag { color: var(--text-dim); font-size: 0.82rem; margin-top: 0.25rem; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+thead th { text-align: left; padding: 0.6rem 0.5rem; color: var(--text-dim); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+tbody td { padding: 0.75rem 0.5rem; border-bottom: 1px solid rgba(148,163,184,0.06); vertical-align: top; }
+tbody tr:hover td { background: rgba(255,255,255,0.02); }
+.code-row code { font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.05); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.82em; color: #93c5fd; }
+
+/* Tags / pills */
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+.tag { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(244,114,182,0.1)); border: 1px solid rgba(99,102,241,0.2); color: #c7d2fe; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500; }
+
+/* Section dividers */
+.section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, #6366f1, #a855f7); color: #fff; font-weight: 700; font-size: 0.8rem; margin-right: 0.5rem; flex-shrink: 0; }
+
+/* Link styling */
+a { color: #93c5fd; text-decoration: none; border-bottom: 1px solid rgba(147,197,253,0.3); transition: border-color .2s; }
+a:hover { border-color: #93c5fd; }
+
+/* Footer */
+footer { text-align: center; margin-top: 4rem; color: var(--text-dim); font-size: 0.8rem; opacity: 0.6; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 1.5rem 1rem; }
+  header h1 { font-size: 2.2rem; }
+  .card { padding: 1.25rem 1.25rem; }
+  table { font-size: 0.82rem; }
+}
 </style>
 </head>
 <body>
-  <div class="tag">Startup Studio</div>
-  <h1>DS4N</h1>
-  <p>We read the signals hidden in data, transforming them into self-sustaining ventures. We don't follow trends &mdash; we pursue what's next.</p>
-  <footer>&copy; DS4N &middot; In Pursuit of What's Next</footer>
+<header>
+  <h1>AI ve AI Ajanları 2026 — Gelişmeler Raporu</h1>
+  <p class="subtitle">Op. Dr. Cüneyt Ayanoğlu · KBB Uzmanı · Web araştırma raporu <span class="date">· 2026-07-27</span></p>
+</header>
+
+<!-- Section 1 -->
+<section class="card" id="sec-1">
+  <h2><span class="section-num">1</span>Model & Reasoning Layer</h2>
+  <table>
+    <thead>
+      <tr><th>Gelişme</th><th>Detay</th><th>Kaynak</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Reasoning models</strong> — ayrı kategori</td><td>RL ile "düşünme" eğitimi; test-time compute scaling; self-correction, verification</td><td><a href="https://zylos.ai/research/2026-01-24-ai-reasoning-models">Zylos Research</a></td></tr>
+      <tr><td><strong>Qwen3-235B-A22B (MoE)</strong></td><td>235B total / 22B active; 256K context (1M extendable); 17/23 benchmark'ta DeepSeek-R1'den üstün; CodeForces ELO #1 open-source; hybrid thinking/non-thinking</td><td><a href="https://codingscape.com/blog/most-powerful-llms-large-language-models">Codingscape</a></td></tr>
+      <tr><td><strong>DeepSeek-R1 distillations</strong></td><td>7B (55.5% AIME 2024), 14B, 32B (o1-mini'yi geçiyor); 1/10 GPU hours ile RL'den better results</td><td><a href="https://www.promptquorum.com/local-llms/best-local-reasoning-model-deepseek-r1-2026">Promptquorum</a> · <a href="https://qainsights.com/qwen3-vs-deepseek-r1-which-open-source-reasoning-model">QAInsights</a></td></tr>
+      <tr><td><strong>BenchLM ranking (Aug 2026)</strong></td><td>Qwen3.6-35B-A3B 51.3; DeepSeek-R1 50.9; o1 48.1; GPT-5.1-Codex 52.6</td><td><a href="https://benchlm.ai/best/reasoning-models">BenchLM</a></td></tr>
+      <tr><td><strong>2026 dominant families</strong></td><td>Claude Sonnet 4.6/Opus 4.7; GPT-4.5/o3-pro; Gemini 2.0; Open-source: Llama 4, Mistral Large 3, DeepSeek-V4</td><td><a href="https://eitt.academy/knowledge-base/ai-agents-2026-guide-from-llm-to-multi-agent-systems">EITT Academy</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Section 2 -->
+<section class="card" id="sec-2">
+  <h2><span class="section-num">2</span>Agent Architecture — 5-Layer Production Stack</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Teknolojiler / Liderler</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. LLM</strong> (Reasoning Engine)</td><td>Claude Sonnet 4.6, GPT-4.5, Gemini 2.0; Llama 4, Mistral Large 3, DeepSeek-V4 (self-hosted)</td></tr>
+      <tr><td><strong>2. Reasoning Engine</strong> (Orchestration)</td><td><strong>LangGraph</strong> (production-grade, stateful, most popular), <strong>CrewAI</strong> (multi-agent collaboration), <strong>AutoGen/AG2</strong> (Microsoft, conversational), Anthropic Computer Use SDK, AWS Strands Agents SDK, OpenAI Assistants API</td></tr>
+      <tr><td><strong>3. Tools / Function Calling</strong></td><td>APIs, databases, RPA bots, browser (Playwright), MCP (Model Context Protocol)</td></tr>
+      <tr><td><strong>4. Memory</strong></td><td>Short-term (session context), Long-term (vector DB + embeddings, semantic search)</td></tr>
+      <tr><td><strong>5. Observability</strong></td><td>Langfuse, tracing, evaluation, logging</td></tr>
+    </tbody>
+  </table>
+  <div class="tags"><span class="tag">LangGraph</span><span class="tag">CrewAI</span><span class="tag">AutoGen</span><span class="tag">MCP</span><span class="tag">Playwright</span></div>
+</section>
+
+<!-- Section 3 -->
+<section class="card" id="sec-3">
+  <h2><span class="section-num">3</span>Multi-Agent Systems — Design Patterns & Frameworks</h2>
+  <table>
+    <thead><tr><th>Framework</th><th>Best For</th><th>Not</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LangGraph</strong></td><td>Complex multi-agent reasoning, enterprise-grade, cyclical workflows, detailed state/memory</td><td>Production leader</td></tr>
+      <tr><td><strong>CrewAI</strong></td><td>Multi-agent systems with clear role separation, production-ready crews</td><td>Role-based collaboration</td></tr>
+      <tr><td><strong>AutoGen/AG2</strong></td><td>Multi-agent reasoning (debate, code gen), human-in-the-loop</td><td>Microsoft origin</td></tr>
+      <tr><td><strong>LlamaIndex</strong></td><td>Knowledge-heavy / RAG-driven agents</td><td>Data-centric</td></tr>
+      <tr><td><strong>n8n</strong></td><td>Connect agents to business tools, no-code automation, 700+ integrations</td><td>Workflow automation</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Key 2026 shift:</strong> "Architecture before intelligence" — production success depends on resilient reasoning architecture, not just smarter models. <a href="https://medium.com/@nraman.n6/building-resilient-multi-agent-reasoning-systems-a-practical-guide-for-2026-23992ab8156f">Medium Guide</a></p>
+  <p><strong>MCP (Model Context Protocol):</strong> 2026'da de facto interop standard; Microsoft Copilot Studio, AWS Bedrock AgentCore, Google Vertex AI Agent Builder, OpenAI AgentKit, IBM watsonx Orchestrate shipped; Salesforce Agentforce & ServiceNow roadmap. <a href="https://alicelabs.ai/en/insights/top-enterprise-ai-platforms-2026">Alice Labs</a></p>
+</section>
+
+<!-- Section 4 -->
+<section class="card" id="sec-4">
+  <h2><span class="section-num">4</span>Enterprise Platform Battle: Agentforce vs Copilot Studio</h2>
+  <table>
+    <thead><tr><th>Aspect</th><th><em>Salesforce Agentforce</em></th><th><em>Microsoft Copilot Studio</em></th></tr></thead>
+    <tbody>
+      <tr><td><strong>Core</strong></td><td>CRM-native, Atlas Reasoning Engine, Data Cloud</td><td>Productivity-focused, Microsoft 365 + Azure, Microsoft Graph + Dataverse</td></tr>
+      <tr><td><strong>Target</strong></td><td>Customer-facing: service automation, sales acceleration</td><td>Employee automation, internal process optimization</td></tr>
+      <tr><td><strong>Deployment</strong></td><td>Low-code/no-code (Agent Builder), Trust Layer, audit trails</td><td>Power Virtual Agents evolution, plugins ecosystem</td></tr>
+      <tr><td><strong>Pricing</strong></td><td>Consumption-based; TCO impacted by Salesforce ecosystem</td><td>Consumption-based; TCO impacted by Microsoft 365/Azure</td></tr>
+      <tr><td><strong>Timeline</strong></td><td>Basic: 4-8 weeks; Enterprise: 6-12 months</td><td>Similar; Microsoft 365 integration faster if already invested</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Section 5 -->
+<section class="card" id="sec-5">
+  <h2><span class="section-num">5</span>Enterprise AI Platform Landscape (8 Major — June 2026)</h2>
+  <table>
+    <thead><tr><th>Platform</th><th>Vendor</th><th>Key Differentiator</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Microsoft Copilot Studio + Microsoft 365 Agents</strong></td><td>Microsoft</td><td>Deep M365/Azure integration, Graph + Dataverse</td></tr>
+      <tr><td><strong>AWS Bedrock AgentCore (Gateway)</strong></td><td>AWS</td><td>Bedrock model access, gateway pattern</td></tr>
+      <tr><td><strong>Google Vertex AI Agent Builder (ADK)</strong></td><td>Google</td><td>Native multimodal, Gemini integration</td></tr>
+      <tr><td><strong>OpenAI Frontier (AgentKit + Responses API)</strong></td><td>OpenAI</td><td>Frontier models, direct API access</td></tr>
+      <tr><td><strong>Salesforce Agentforce 360</strong></td><td>Salesforce</td><td>CRM-native, Data Cloud, Trust Layer</td></tr>
+      <tr><td><strong>ServiceNow AI Agents (Now Platform)</strong></td><td>ServiceNow</td><td>ITSM/ITOM workflows, Now Platform</td></tr>
+      <tr><td><strong>IBM watsonx Orchestrate</strong></td><td>IBM</td><td>Governance, compliance, enterprise focus</td></tr>
+      <tr><td><strong>UiPath Agentic Automation</strong></td><td>UiPath</td><td>RPA + agent integration, MCP support</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Section 6 -->
+<section class="card" id="sec-6">
+  <h2><span class="section-num">6</span>2026 Key Trends Summary</h2>
+  <table>
+    <thead><tr><th>Trend</th><th>Açıklama</th><th>Kaynak</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Persistent/Always-on agents</strong></td><td>Long-running workflows, local execution, user data control (OpenClaw)</td><td><a href="https://blog.bytebytego.com/p/whats-next-in-ai-five-trends-to-watch">ByteByteGo</a></td></tr>
+      <tr><td><strong>Concierge-level customer service</strong></td><td>Proactive, context-aware, personalized; fewer tickets</td><td><a href="https://www.reddit.com/r/AI_Agents/comments/1q3ka8o/i_read_google_clouds_ai_agent_trends_2026_report">Reddit/Google Cloud</a></td></tr>
+      <tr><td><strong>Agents as digital coworkers</strong></td><td>3-person teams launch global campaigns; humans steer strategy</td><td><a href="https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026">Microsoft News</a></td></tr>
+      <tr><td><strong>Security: built-in, ambient, autonomous</strong></td><td>Alert→action shift; SOC teams get agentic triage/investigation/remediation</td><td><a href="https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026">Microsoft News</a></td></tr>
+      <tr><td><strong>Deterministic control & context engineering</strong></td><td>LLM calls 4→2; rule filters replace LLM safety checks; HyperClassifier 30x faster</td><td><a href="https://www.salesforce.com/blog/ai-agent-trends-2026">Salesforce Blog</a></td></tr>
+      <tr><td><strong>Agent control planes & multi-agent dashboards</strong></td><td>Single launch point; agents operate across browser/editor/inbox</td><td><a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026">IBM Think</a></td></tr>
+      <tr><td><strong>Transparency & trust</strong></td><td>Regulators/consumers demand explainability; modular sovereignty</td><td><a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026">IBM Think</a></td></tr>
+      <tr><td><strong>New job titles</strong></td><td>Agent orchestration, context engineering, headless CRM roles</td><td><a href="https://www.salesforce.com/blog/ai-agent-trends-2026">Salesforce Blog</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Section 7 -->
+<section class="card" id="sec-7">
+  <h2><span class="section-num">7</span>Risk & Challenges</h2>
+  <ul style="padding-left:1.2rem; line-height:1.75;">
+    <li><strong>Hallucinations</strong> — reasoning models reduce but don't eliminate</li>
+    <li><strong>Tool misuse / prompt injection</strong> — guardrails critical</li>
+    <li><strong>Cascading failures</strong> in multi-agent setups</li>
+    <li><strong>Power asymmetry</strong> — "teammate" framing masks ownership/governance reality <a href="https://www.reddit.com/r/AI_Agents/comments/1q3ka8o/i_read_google_clouds_ai_agent_trends_2026_report">Reddit analysis</a></li>
+    <li><strong>Epistemic sleep</strong> — automation of vigilance reduces human understanding <a href="https://www.reddit.com/r/AI_Agents/comments/1q3ka8o/i_read_google_clouds_ai_agent_trends_2026_report">Reddit analysis</a></li>
+  </ul>
+</section>
+
+<!-- Section 8 -->
+<section class="card" id="sec-8">
+  <h2><span class="section-num">8</span>Quick Reference Links</h2>
+  <h3>Architecture & Frameworks</h3>
+  <div class="tags"><span class="tag"><a href="https://eitt.academy/knowledge-base/ai-agents-2026-guide-from-llm-to-multi-agent-systems">EITT Academy</a></span><span class="tag"><a href="https://cogitx.ai/blog/ai-agents-complete-overview-2026">Cogitx</a></span><span class="tag"><a href="https://www.superannotate.com/blog/multi-agent-llms">Superannotate</a></span><span class="tag"><a href="https://medium.com/@nraman.n6/building-resilient-multi-agent-reasoning-systems-a-practical-guide-for-2026-23992ab8156f">Medium Guide</a></span></div>
+
+  <h3>Models & Reasoning</h3>
+  <div class="tags"><span class="tag"><a href="https://zylos.ai/research/2026-01-24-ai-reasoning-models">Zylos</a></span><span class="tag"><a href="https://www.promptquorum.com/local-llms/best-local-reasoning-model-deepseek-r1-2026">Promptquorum</a></span><span class="tag"><a href="https://qainsights.com/qwen3-vs-deepseek-r1-which-open-source-reasoning-model">QAInsights</a></span><span class="tag"><a href="https://benchlm.ai/best/reasoning-models">BenchLM</a></span><span class="tag"><a href="https://codingscape.com/blog/most-powerful-llms-large-language-models">Codingscape</a></span></div>
+
+  <h3>Enterprise Platforms</h3>
+  <div class="tags"><span class="tag"><a href="https://alicelabs.ai/en/insights/top-enterprise-ai-platforms-2026">Alice Labs (8 platforms)</a></span><span class="tag"><a href="https://smartbridge.com/salesforce-agentforce-vs-microsoft-copilot-studio-2026-comparison">Agentforce vs Copilot</a></span><span class="tag"><a href="https://thinklytics.com/insights/agentforce-vs-copilot-2026">Thinklytics</a></span><span class="tag"><a href="https://vantagepoint.io/blog/sf/the-complete-guide-to-salesforces-agentforce-ecosystem-understanding-the-full-product-portfolio-in-2026">Agentforce Guide</a></span></div>
+
+  <h3>Trend Reports</h3>
+  <div class="tags"><span class="tag"><a href="https://blog.bytebytego.com/p/whats-next-in-ai-five-trends-to-watch">ByteByteGo</a></span><span class="tag"><a href="https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026">Microsoft</a></span><span class="tag"><a href="https://www.salesforce.com/blog/ai-agent-trends-2026">Salesforce</a></span><span class="tag"><a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026">IBM</a></span><span class="tag"><a href="https://www.reddit.com/r/AI_Agents/comments/1q3ka8o/i_read_google_clouds_ai_agent_trends_2026_report">Reddit/Google Cloud</a></span></div>
+</section>
+
+<!-- Summary -->
+<section class="card" id="summary" style="margin-top:2.5rem; border-left: 3px solid var(--accent);">
+  <h2><span class="section-num">✓</span>Özet</h2>
+  <p style="color:var(--text-dim); line-height:1.75; font-size:1.05rem;">2026'da AI ajanları <strong>reasoning models</strong> (Qwen3, DeepSeek-R1 distillations), <strong>5-layer production architecture</strong> (LangGraph-led), <strong>MCP standardization</strong>, ve <strong>enterprise platform wars</strong> (Agentforce vs Copilot) etrafında şekilleniyor. Production success artık <strong>model intelligence'dan ziyade architecture resilience'a bağlı</strong> — deterministic guardrails, context engineering, ve built-in security ile.</p>
+</section>
+
+<footer>
+  <p>AI ve AI Ajanları 2026 Gelişmeler Raporu · Op. Dr. Cüneyt Ayanoğlu · <a href="https://www.cuneytayanoglu.com">cuneytayanoglu.com</a> · Telegram'a 8 parça MarkdownV2 olarak gönderildi</p>
+</footer>
+
 </body>
 </html>
